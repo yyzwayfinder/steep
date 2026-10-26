@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="1.0">
+  <head><title>Chris subscriptions in feedly Cloud</title></head>
+  <body>
+    <outline text="Tech" title="Tech">
+      <outline type="rss" text="Signal &amp; Noise" title="Signal &amp; Noise" xmlUrl="https://signal.example/feed" htmlUrl="https://signal.example/"/>
+      <outline type="rss" text="r/selfhosted" title="r/selfhosted" xmlUrl="https://www.reddit.com/r/selfhosted/.rss" htmlUrl="https://www.reddit.com/r/selfhosted"/>
+      <outline text="Nested group" title="Nested group">
+        <outline type="rss" text="Deep feed" xmlUrl="https://deep.example/rss"/>
+      </outline>
+    </outline>
+    <outline text="News" title="News">
+      <outline type="rss" text="Lakeshore Times" xmlUrl="https://lakeshore.example/feeds/local.atom"/>
+    </outline>
+    <outline type="rss" text="Loose feed" xmlUrl="https://loose.example/feed.xml"/>
+    <outline type="rss" text="Bad" xmlUrl="javascript:alert(1)"/>
+  </body>
+</opml>

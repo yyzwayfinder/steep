@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Lakeshore Times — Local</title>
+  <link href="https://lakeshore.example/local"/>
+  <id>urn:lakeshore:local</id>
+  <updated>2026-10-26T16:05:00Z</updated>
+  <entry>
+    <title>Council backs a two-year plan for the waterfront trail</title>
+    <link href="https://lakeshore.example/local/waterfront-trail"/>
+    <id>urn:lakeshore:local:1</id>
+    <updated>2026-10-26T16:05:00Z</updated>
+    <content type="html">&lt;p&gt;The vote clears the way for design work to begin this winter, with construction pencilled in for 2028. Residents spoke for and against the plan during a three-hour meeting that ran late into the evening, with most concerns about parking and the loss of mature trees along the existing path. Staff will return with a revised route in the spring, alongside a tree-replacement plan and a parking study for the three busiest access points. The council also asked for an accessibility review of every ramp and crossing on the route, and for the trail to stay open in sections during construction wherever that is safe. Funding comes partly from a provincial infrastructure grant and partly from the town's capital reserve, and the motion caps the town's share at the amount already set aside in this year's budget.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <title>Library extends weekend hours</title>
+    <link href="https://lakeshore.example/local/library-hours"/>
+    <id>urn:lakeshore:local:2</id>
+    <updated>2026-10-25T12:00:00Z</updated>
+    <summary>Branches will open until 8 p.m. on Saturdays starting next month, the library board confirmed on Friday after a pilot drew strong attendance.</summary>
+  </entry>
+</feed>

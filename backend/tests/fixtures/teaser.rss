@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>Signal &amp; Noise</title>
+    <link>https://signal.example/</link>
+    <description>Test feed with teaser items</description>
+    <item>
+      <title>The quiet return of the home server</title>
+      <link>https://signal.example/home-server?utm_source=rss&amp;utm_medium=feed&amp;id=7</link>
+      <guid>https://signal.example/?p=101</guid>
+      <pubDate>Mon, 26 Oct 2026 15:51:00 GMT</pubDate>
+      <description><![CDATA[<p>Cheap storage... Continue reading</p>]]></description>
+      <media:thumbnail url="https://signal.example/img/server.jpg"/>
+    </item>
+    <item>
+      <title>RSS never died</title>
+      <link>https://signal.example/rss-never-died</link>
+      <guid>https://signal.example/?p=100</guid>
+      <pubDate>Sun, 25 Oct 2026 09:05:00 GMT</pubDate>
+      <description><![CDATA[<p>Feed readers are having a moment again, driven by people tired of algorithmic timelines. This summary is comfortably long enough that the app should use it as the excerpt rather than digging into the body.</p><script>alert(1)</script><img src="https://t.example/pixel.gif" width="1" height="1">]]></description>
+    </item>
+  </channel>
+</rss>
