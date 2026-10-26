@@ -1,0 +1,17 @@
+# Local development or non-Unraid hosts: `docker compose up --build`, then open http://localhost:8095
+services:
+  steep:
+    build: .
+    image: ghcr.io/yyzwayfinder/steep:latest
+    container_name: steep
+    ports:
+      - "8095:8080"
+    volumes:
+      - ./data:/data
+    environment:
+      - STEEP_PASSWORD=change-me
+      - TZ=America/Toronto
+      - PUID=1000
+      - PGID=1000
+      - FETCH_CONCURRENCY=8
+    restart: unless-stopped
