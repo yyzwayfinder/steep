@@ -86,6 +86,19 @@ def sanitize(html: str | None, base_url: str | None = None) -> str:
     )
 
 
+def strip_title_heading(html: str, title: str | None) -> str:
+    """Extracted pages usually repeat the headline as their first heading; drop it."""
+    if not html or not title:
+        return html
+    m = re.match(r"\s*(?:<(?:html|body|div|article|main|section|doc)[^>]*>\s*)*<h[1-3][^>]*>(.*?)</h[1-3]>", html, re.IGNORECASE | re.DOTALL)
+    if not m:
+        return html
+    heading = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", m.group(1))).strip().lower()
+    if heading and heading == re.sub(r"\s+", " ", title).strip().lower():
+        return html[: m.start(1)].rsplit("<", 1)[0] + html[m.end():]
+    return html
+
+
 def text_of(html: str | None) -> str:
     if not html or not html.strip():
         return ""

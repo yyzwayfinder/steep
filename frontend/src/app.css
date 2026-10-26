@@ -1,0 +1,141 @@
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/600.css';
+@import '@fontsource/inter/700.css';
+@import '@fontsource/jetbrains-mono/400.css';
+@import '@fontsource/jetbrains-mono/600.css';
+
+:root {
+  --canvas: #f7f5f0;
+  --dots: #e2ded6;
+  --card: #ffffff;
+  --card-2: #fbfaf7;
+  --border: #e6e2da;
+  --divider: #f0ede7;
+  --text: #1a1a1a;
+  --body: #262522;
+  --muted: #55524c;
+  --label: #4a4740;
+  --faint: #6e6a62;
+  --read: #5e5b54;
+  --chip: #f1efea;
+  --hover: #f6f4f0;
+  --selected: #f6f4f0;
+  --active: #eae6de;
+  --field: #f6f4f0;
+  --seg: #ece9e2;
+  --seg-on: #ffffff;
+  --accent: #e8743b;
+  --accent-soft: #fbe7dc;
+  --invert-bg: #1a1a1a;
+  --invert-text: #ffffff;
+  --invert-sub: #3a3936;
+  --good: #2e6b45;
+  --warn: #9a5b10;
+  --bad: #b3261e;
+  --shadow: 0 1px 2px rgba(26, 26, 26, 0.08);
+  --sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+  --serif: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
+  --reader-size: 18px;
+  --reader-font: var(--sans);
+  --reader-width: 680px;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --canvas: #2b2b2d; --dots: #3a3a3d; --card: #38383b; --card-2: #404043; --border: #444447;
+    --divider: #444447; --text: #f2f2f2; --body: #dadadd; --muted: #b4b4b9; --label: #a9a9ae;
+    --faint: #9a9aa0; --read: #a9a9ae; --chip: #46464a; --hover: #3f3f42; --selected: #434347;
+    --active: #4a4a4e; --field: #2e2e31; --seg: #2e2e31; --seg-on: #4a4a4e; --accent: #f0844a;
+    --accent-soft: #4d3a2f; --invert-bg: #f2f2f2; --invert-text: #1c1c1e; --invert-sub: #d6d6d9;
+    --good: #5cc285; --warn: #e3a64f; --bad: #ff8a80; --shadow: none; color-scheme: dark;
+  }
+}
+:root[data-theme='dark'] {
+  --canvas: #2b2b2d; --dots: #3a3a3d; --card: #38383b; --card-2: #404043; --border: #444447;
+  --divider: #444447; --text: #f2f2f2; --body: #dadadd; --muted: #b4b4b9; --label: #a9a9ae;
+  --faint: #9a9aa0; --read: #a9a9ae; --chip: #46464a; --hover: #3f3f42; --selected: #434347;
+  --active: #4a4a4e; --field: #2e2e31; --seg: #2e2e31; --seg-on: #4a4a4e; --accent: #f0844a;
+  --accent-soft: #4d3a2f; --invert-bg: #f2f2f2; --invert-text: #1c1c1e; --invert-sub: #d6d6d9;
+  --good: #5cc285; --warn: #e3a64f; --bad: #ff8a80; --shadow: none; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; }
+body {
+  background-color: var(--canvas);
+  color: var(--text);
+  font-family: var(--sans);
+  font-feature-settings: 'zero';
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+button, input, select, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+.mono {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.dots {
+  background-image: radial-gradient(var(--dots) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+.card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; }
+
+.btn {
+  height: 36px; padding: 0 14px; border-radius: 10px; border: 1px solid var(--border);
+  background: var(--card); display: inline-flex; align-items: center; gap: 7px;
+  font-size: 13.5px; font-weight: 500; white-space: nowrap;
+}
+.btn:hover { background: var(--hover); }
+.btn.primary { background: var(--invert-bg); color: var(--invert-text); border-color: transparent; }
+.btn.primary:hover { opacity: 0.9; }
+.btn.ghost { border-color: transparent; background: transparent; }
+.btn.ghost:hover { background: var(--hover); }
+.btn.danger { color: var(--bad); }
+.btn:disabled { opacity: 0.5; cursor: default; }
+.icon-btn {
+  width: 36px; height: 36px; border: 0; background: transparent; border-radius: 9px;
+  display: inline-flex; align-items: center; justify-content: center; color: var(--label); flex: none;
+}
+.icon-btn:hover { background: var(--hover); color: var(--text); }
+.seg { display: flex; padding: 3px; background: var(--seg); border-radius: 10px; }
+.seg button {
+  height: 30px; padding: 0 12px; border: 0; border-radius: 8px; background: transparent;
+  font-size: 13px; font-weight: 500; color: var(--label); display: inline-flex; align-items: center; gap: 6px;
+}
+.seg button[aria-pressed='true'] { background: var(--seg-on); color: var(--text); box-shadow: var(--shadow); }
+
+input[type='text'], input[type='url'], input[type='password'], input[type='search'], input[type='number'], select {
+  height: 42px; padding: 0 12px; border: 1px solid var(--border); border-radius: 10px;
+  background: var(--card); font-size: 15px; width: 100%; outline: none;
+}
+input:focus, select:focus { border-color: var(--label); }
+
+/* Article body typography */
+.prose { font-family: var(--reader-font); font-size: var(--reader-size); line-height: 1.72; color: var(--body); overflow-wrap: anywhere; }
+.prose p, .prose ul, .prose ol, .prose blockquote, .prose pre, .prose figure, .prose table { margin: 0 0 1.1em; }
+.prose h1, .prose h2, .prose h3, .prose h4 { font-family: var(--sans); color: var(--text); line-height: 1.25; margin: 1.6em 0 0.6em; letter-spacing: -0.01em; }
+.prose h2 { font-size: 1.35em; } .prose h3 { font-size: 1.15em; }
+.prose img, .prose video { max-width: 100%; height: auto; border-radius: 10px; display: block; margin: 0.4em auto; }
+.prose figure img { margin-bottom: 0.4em; }
+.prose figcaption { font-family: var(--sans); font-size: 13px; color: var(--faint); }
+.prose a { color: var(--text); text-decoration-color: var(--accent); text-underline-offset: 3px; }
+.prose blockquote { border-left: 3px solid var(--border); padding-left: 1em; color: var(--muted); margin-left: 0; }
+.prose pre { background: var(--chip); padding: 14px; border-radius: 10px; overflow-x: auto; font-size: 0.82em; }
+.prose code { font-family: var(--mono); font-size: 0.86em; }
+.prose table { border-collapse: collapse; display: block; overflow-x: auto; font-size: 0.9em; }
+.prose td, .prose th { border: 1px solid var(--border); padding: 6px 10px; }
+.prose hr { border: 0; border-top: 1px solid var(--border); margin: 2em 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}

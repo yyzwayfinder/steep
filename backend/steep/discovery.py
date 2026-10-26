@@ -116,6 +116,15 @@ async def discover(raw_url: str) -> list[dict[str, Any]]:
     url = normalize(raw_url)
     try:
         resp = await client().get(url)
+    except httpx.ConnectError as exc:
+        # No scheme given and HTTPS isn't offered (common for LAN services): try plain HTTP.
+        if re.match(r"^https?://", raw_url.strip(), re.I) is None:
+            try:
+                resp = await client().get("http://" + url[len("https://"):])
+            except httpx.HTTPError:
+                raise DiscoveryError(f"Couldn't reach that site ({type(exc).__name__}).") from exc
+        else:
+            raise DiscoveryError(f"Couldn't reach that site ({type(exc).__name__}).") from exc
     except httpx.HTTPError as exc:
         raise DiscoveryError(f"Couldn't reach that site ({type(exc).__name__}).") from exc
     if resp.status_code >= 400:

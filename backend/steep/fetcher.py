@@ -17,7 +17,7 @@ import trafilatura
 
 from . import db
 from .config import get_settings
-from .content import clean_url, content_hash, first_image, make_excerpt, sanitize, text_of
+from .content import clean_url, content_hash, first_image, make_excerpt, sanitize, strip_title_heading, text_of
 from .events import broadcaster
 
 log = logging.getLogger("steep.fetcher")
@@ -288,7 +288,7 @@ async def _fetch_feed(feed_id: int) -> dict[str, Any]:
                 conn.execute("UPDATE feeds SET favicon_url=? WHERE id=?", (f"https://{host}/favicon.ico", feed_id))
 
         for (entry, guid, title, link, summary, content, h, existing), (full, failed) in zip(candidates, extracted):
-            body_html = full or content or summary
+            body_html = strip_title_heading(full or content or summary, title)
             clean_body = sanitize(body_html, link or site_url)
             clean_summary = sanitize(summary, link or site_url)
             excerpt = make_excerpt(summary, full or content, title)

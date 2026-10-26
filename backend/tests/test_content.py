@@ -37,3 +37,19 @@ def test_clean_url_strips_tracking_but_keeps_real_params():
     url = "https://ex.example/p?id=7&utm_source=rss&utm_medium=feed&fbclid=abc#xtor=RSS-1"
     assert clean_url(url) == "https://ex.example/p?id=7"
     assert clean_url("https://ex.example/p#section-2") == "https://ex.example/p#section-2"
+
+
+def test_strip_title_heading_only_when_it_matches():
+    from steep.content import strip_title_heading
+
+    html = "<div><h1>The quiet return</h1><p>Body</p></div>"
+    assert "<h1>" not in strip_title_heading(html, "The quiet return")
+    assert "<p>Body</p>" in strip_title_heading(html, "The quiet return")
+    assert strip_title_heading(html, "Something else") == html
+
+
+def test_strip_title_heading_inside_html_body_wrapper():
+    from steep.content import strip_title_heading
+
+    html = "<html>\n  <body>\n    <h1>The quiet return</h1>\n    <p>Body</p></body></html>"
+    assert "<h1>" not in strip_title_heading(html, "The quiet return")
